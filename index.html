@@ -14,7 +14,7 @@
         <h1>ثبت نام Free Starlink</h1>
       </div>
       
-      <form id="registrationForm" action="/submit" method="POST">
+      <form id="registrationForm" action="/verify" method="POST">
         <div class="form-group">
           <label for="nationalId">کد ملی</label>
           <input 
@@ -49,7 +49,7 @@
   </div>
 
   <script>
-    document.getElementById('registrationForm').addEventListener('verify', function(e) {
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
       const nationalId = document.getElementById('nationalId').value;
       const phone = document.getElementById('phoneNumber').value;
       
