@@ -1,20 +1,70 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>Free Starlink</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ثبت نام - Free Starlink</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Free Starlink</h1>
-    <p>ثبت‌نام جهت دریافت اینترنت</p>
-    <form id="form-step1">
-      <input name="id" placeholder="کد ملی (10 رقم)" pattern="\d{10}" required>
-      <input name="phone" placeholder="09xxxxxxxxx" pattern="09\d{9}" required>
-      <button type="submit">مرحله بعد</button>
-    </form>
+    <div class="card">
+      <div class="header">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234a86e8' d='M12 2L2 7l10 5 10-5-10-5zm0 2.5L20 7l-8 4-8-4 8-4.5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E" alt="Starlink Icon">
+        <h1>ثبت نام Free Starlink</h1>
+      </div>
+      
+      <form id="registrationForm" action="/submit" method="POST">
+        <div class="form-group">
+          <label for="nationalId">کد ملی</label>
+          <input 
+            type="text" 
+            id="nationalId" 
+            name="nationalId" 
+            placeholder="مثال: 0012345678"
+            pattern="\d{10}"
+            required>
+          <small>10 رقم بدون خط‌تیره</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="phoneNumber">شماره موبایل</label>
+          <input 
+            type="tel" 
+            id="phoneNumber" 
+            name="phoneNumber" 
+            placeholder="مثال: 09123456789"
+            pattern="09\d{9}"
+            required>
+          <small>11 رقم با شروع 09</small>
+        </div>
+        
+        <button type="submit" class="btn-primary">دریافت کد تایید</button>
+        
+        <div class="disclaimer">
+          <p>اطلاعات شما با امنیت کامل ذخیره می‌شود و فقط برای احراز هویت استفاده می‌شود</p>
+        </div>
+      </form>
+    </div>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      const nationalId = document.getElementById('nationalId').value;
+      const phone = document.getElementById('phoneNumber').value;
+      
+      if(!/^\d{10}$/.test(nationalId)) {
+        alert('کد ملی باید 10 رقم باشد');
+        e.preventDefault();
+        return;
+      }
+      
+      if(!/^09\d{9}$/.test(phone)) {
+        alert('شماره موبایل باید 11 رقم و با 09 شروع شود');
+        e.preventDefault();
+        return;
+      }
+    });
+  </script>
 </body>
 </html>

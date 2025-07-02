@@ -1,6 +1,215 @@
-body { margin:0; font-family:‘Roboto’,sans-serif; background:#f7faff; color:#1a1a1a; }
-.container { max-width:360px; margin:80px auto; padding:20px; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); text-align:center; }
-h1 { margin-bottom:10px; }
-input { width:100%; padding:10px; margin:8px 0; border:1px solid #ccd; border-radius:6px; }
-button { width:100%; padding:12px; margin-top:12px; background:#4285f4; color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:16px; transition:background 0.3s; }
-button:hover { background:#3367d6; }
+:root {
+  --primary: #4a86e8;
+  --primary-light: #e3ebf9;
+  --secondary: #6c757d;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --success: #28a745;
+  --border: #dee2e6;
+  --shadow: 0 4px 12px rgba(0,0,0,0.1);
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+  color: var(--dark);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.success-card {
+  text-align: center;
+  padding: 40px 30px;
+}
+
+.header {
+  background: linear-gradient(135deg, var(--primary), #3a75d9);
+  color: white;
+  padding: 25px 20px;
+  text-align: center;
+}
+
+.header img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+form {
+  padding: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+small {
+  display: block;
+  margin-top: 6px;
+  color: var(--secondary);
+  font-size: 0.85rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), #3a75d9);
+  color: white;
+  border: none;
+  padding: 14px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(74, 134, 232, 0.4);
+}
+
+.disclaimer {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: var(--primary-light);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #2c5282;
+}
+
+.instruction {
+  text-align: center;
+  margin: 20px 0;
+  padding: 0 20px;
+  color: var(--secondary);
+}
+
+.resend {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.resend a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.success-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8f5e9;
+  border-radius: 50%;
+}
+
+.success-icon svg {
+  width: 60px;
+  height: 60px;
+}
+
+.success-message {
+  margin-bottom: 30px;
+}
+
+.success-message h1 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: var(--success);
+}
+
+.success-message p {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  margin-bottom: 5px;
+}
+
+.connection-details {
+  background: var(--light);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: right;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.status-connected {
+  color: var(--success);
+  font-weight: 500;
+}
+
+.support {
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+
+.support a {
+  color: var(--primary);
+  text-decoration: none;
+}
